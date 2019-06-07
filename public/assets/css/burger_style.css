@@ -1,0 +1,102 @@
+/* Setting background image to be responsive */
+body {
+  background: url("../img/Bobs-Burgers-Interior.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  
+}
+/* beefsquatch burger icon with border */
+#gene {
+  width: 200px;
+  border-style: solid;
+  border-color: black;
+  border-radius: 0.5rem;
+}
+/* element to house page title and pic */
+#bannerPhoto {
+  margin-bottom: 8%;
+}
+/* div element to house user input burgers */
+#unsquatched {
+  position: relative;
+  border-radius: 0.5rem;
+  border-style: solid;
+  border-color: #ffa807;
+  height: 400px;
+  z-index: 1;
+  min-width: 190.05px;
+}
+/* background chalkboard burger of the day element nested inside parent div */
+#chalkboard {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.9;
+  z-index: 2;
+  border-radius: inherit;
+}
+#BOTD {
+  position: relative;
+  color: black;
+  height: 45%;
+  overflow-y: auto;
+  z-index: 999;
+  top: 35%;
+  color: rgb(228, 232, 250);
+}
+/* devoured burgers container */
+#squatched {
+  background-color: rgba(255, 255, 255, 0.9);  
+  border-radius: 0.5rem;
+  border-style: solid;
+  border-color: #ffa807;
+}
+
+ul {
+  padding-left: 0;
+}
+#eaten {
+  text-decoration: line-through;
+}
+
+h1, h2, p {
+  font-family: 'Permanent Marker', cursive;
+}
+
+#burgerName {
+  max-width: 60%;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-width: 2.4px;
+  border-color: black;
+}
+#formSubmit {
+  display: flex;
+  padding-left: 20%;
+  font-family: 'Permanent Marker', cursive;
+}
+
+.change-devoured, #submitbtn {
+  border-width: 2.4px;
+  font-family: 'Permanent Marker', cursive;
+}
+
+.row {
+  margin-bottom: 5%;
+}
+
+footer {
+  background-color: rgba(255, 255, 255, 0.8);
+  position: static;
+  bottom: 0;
+  margin: auto;
+  padding: 10px;
+  width: 100%;
+}
+#footertext {
+  text-align: center;
+  font-family: 'Permanent Marker', cursive;
+}
