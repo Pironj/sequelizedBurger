@@ -4,13 +4,17 @@ var express = require("express");
 var router = express.Router();
 
 // Import the model (burger.js) to use its database functions.
-var burger = require("../models/burger");
+var db = require("../models");
 
 // Create all our routes and set up logic within those routes where required.
 // retrieve data from our database
 router.get("/", function(req, res) {
-  burger.selectAll(function(data) {
-    var hbsObject = { burgers: data };
+  db.burger.findAll({attributes: ['id', 'burger_name', 'devoured']}).then(function(data) {
+    var dataVal = [];
+    for (var i = 0; i < data.length; i++) {
+      dataVal.push(data[i].dataValues);
+    }
+    var hbsObject = { burgers: dataVal };
     console.log(hbsObject);
     res.render("index", hbsObject);
   });
@@ -18,31 +22,26 @@ router.get("/", function(req, res) {
 
 // Store Input data into our Database.
 router.post("/api/burgers", function(req, res) {
-  burger.insertOne(
-    ["burger_name", "devoured"],
-    [req.body.burger_name, req.body.devoured],
-    function(result) {
-      res.json({ id: result.insertId });
-    }
-  );
+  db.burger.create({
+    burger_name: req.body.burger_name,
+    devoured: req.body.devoured
+  }).then(function(result) {
+    res.json(result);
+  });
 });
 
 router.put("/api/burgers/:id", function(req, res) {
-  var condition = "id = " + req.params.id;
-
-  console.log("condition", condition);
-
-  burger.updateOne(
-    { devoured: req.body.devoured },
-    condition,
-    function(result) {
-      if (result.changedRows == 0) {
-        return res.status(404);
-      } else {
-        res.json(result);
+  db.burger.update(
+    {
+      devoured: req.body.devoured
+    },
+    {
+      where: {
+        id: req.params.id
       }
-    }
-  );
+    }).then(function(result) {
+      res.render("index", result);
+  });
 });
 
 // Export routes for server.js to use.
