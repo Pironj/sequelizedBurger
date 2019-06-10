@@ -44,5 +44,19 @@ router.put("/api/burgers/:id", function(req, res) {
   });
 });
 
+// DELETE route for deleting squatched burgers. We can get the id of the todo to be deleted from
+// req.params.id
+router.delete("/api/burgers/:id", function(req, res) {
+  // We just have to specify which todo we want to destroy with "where"
+  db.burger.destroy({
+    where: {
+      id: req.params.id
+    }
+  }).then(function(result) {
+    res.json(result);
+  });
+
+});
+
 // Export routes for server.js to use.
 module.exports = router;

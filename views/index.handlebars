@@ -43,6 +43,8 @@
   </div>
 </div>
 <script>
+$(document).ready(function() {
+
   $(function() {
     $(".change-devoured").on("click", function(event) {
       var id = $(this).data("id");
@@ -79,5 +81,20 @@
         }
       );
     });
+      // This function deletes a todo when the user clicks the delete button
+    $(".delete").on("click", function(event) {
+      event.preventDefault();
+      var id = $(this).data("id");
+      $.ajax({
+        method: "DELETE",
+        url: "/api/burgers/" + id
+      }).then(
+        function() {
+          console.log("delete burger");
+          location.reload();
+        }
+      );
+    });
   });
+});
 </script>
