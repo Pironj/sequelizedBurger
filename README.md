@@ -1,5 +1,7 @@
-# Eat-Da-Burger
+# Eat-Da-Burger-Sequelized
 Eat-Da-Burger! is a restaurant app that lets users input the names of burgers they'd like to eat.
+
+This version is a refactor of a previous MySQL version using Sequelize
 
 Whenever a user submits a burger's name, your app will display the burger on the left side of the page -- waiting to be devoured.
 
@@ -11,8 +13,8 @@ uses Node and MySQL to query and route data in your app, and Handlebars to gener
 
 ## Technologies:
 * MySQL
+* Sequelize
 * Node
 * Express
 * Handlebars
-* homemade ORM
 * MVC design pattern uses Node and MySQL to query and route data in your app, and Handlebars to generate your HTML.
