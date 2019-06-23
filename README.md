@@ -1,6 +1,8 @@
 # Eat-Da-Burger-Sequelized
 Eat-Da-Burger! is a restaurant app that lets users input the names of burgers they'd like to eat.
 
+Link to deployed: https://beefsquatched-sequelized.herokuapp.com/
+
 This version is a refactor of a previous MySQL version using Sequelize
 
 Whenever a user submits a burger's name, your app will display the burger on the left side of the page -- waiting to be devoured.
